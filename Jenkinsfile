@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('build') {
       steps {
@@ -17,7 +17,7 @@ whoami
 ls -latr'''
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         sh '''echo "last script"
 node -v'''
