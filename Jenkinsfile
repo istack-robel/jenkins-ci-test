@@ -1,19 +1,26 @@
 pipeline {
-  agent {
-    node {
-      label 'nodejs'
-    }
-    
-  }
+  agent none
   stages {
     stage('build') {
       steps {
-        echo 'first step build'
+        sh '''echo "build stage"
+pwd
+ls -latr
+whoami'''
       }
     }
     stage('clean up') {
       steps {
-        sh 'clear;ls -latr;whoami;pwd'
+        sh '''echo "clean up stage"
+pwd
+whoami
+ls -latr'''
+      }
+    }
+    stage('') {
+      steps {
+        sh '''echo "last script"
+node -v'''
       }
     }
   }
