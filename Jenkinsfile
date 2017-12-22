@@ -4,23 +4,11 @@ pipeline {
     stage('build') {
       steps {
         sh '''echo "build stage"
-pwd
-ls -latr
-whoami'''
-      }
-    }
-    stage('clean up') {
-      steps {
-        sh '''echo "clean up stage"
-pwd
-whoami
-ls -latr'''
-      }
-    }
-    stage('error') {
-      steps {
-        sh '''echo "last script"
-node -v'''
+              whoami
+              ls -latr
+              chmod +x deploy.sh
+              ./deploy.sh archive_and_transfer_server
+            '''
       }
     }
   }
