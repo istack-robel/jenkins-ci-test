@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         sh '''echo "build stage"
+              pwd
               whoami
               ls -latr
               chmod +x deploy.sh
